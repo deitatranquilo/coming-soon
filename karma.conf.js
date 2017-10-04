@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Mon Oct 02 2017 00:46:36 GMT-0300 (ART)
 
-const webpackConfig = require('./webpack.config');
+const webpackConfig = require('./webpack.config.test');
 
 const karmaConfig = (config) => {
   config.set({
@@ -31,7 +31,7 @@ const karmaConfig = (config) => {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/**/*.jsx': ['babel', 'sourcemap', 'coverage'],
+      'src/**/*.jsx': ['webpack', 'sourcemap'],
       'spec/**/*.spec.jsx': ['webpack', 'sourcemap'],
       'spec/**/*.spec.js': ['webpack', 'sourcemap'],
     },
@@ -40,14 +40,12 @@ const karmaConfig = (config) => {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
 
-    coverageReporter: {
-      reporters: [
-        { type: 'html', dir: 'coverage/' },
-        { type: 'text' },
-        { type: 'text-summary' },
-      ],
+    reporters: ['progress', 'coverage-istanbul'],
+
+    coverageIstanbulReporter: {
+      reports: ['lcovonly', 'html', 'text-summary', 'text'],
+      fixWebpackSourcePaths: true
     },
 
     // web server port
@@ -79,9 +77,9 @@ const karmaConfig = (config) => {
 
     plugins: [
       'karma-webpack',
-      'karma-babel',
       'karma-jasmine',
       'karma-coverage',
+      'karma-coverage-istanbul-reporter',
       'karma-sourcemap-loader',
       'karma-chrome-launcher',
     ],
