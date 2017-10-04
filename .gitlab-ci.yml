@@ -9,21 +9,14 @@ cache:
 stages:
   - build
   - test
-  - coverage
 
 build:
   stage: build
   script:
-    - chmod +x ./config/ci/install-chrome.sh
     - npm install
 
 test:
   stage: test
   script:
-    - npm test
-
-coverage:
-  stage: coverage
-  script:
-    - npm run coverage
+    - npm run test:ci
   coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/

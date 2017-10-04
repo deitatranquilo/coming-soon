@@ -26,7 +26,9 @@ const webpackConfig = {
           },
         },
         enforce: 'post',
-        exclude: /node_modules|\.spec\.js$/,
+        exclude: [
+          /node_modules|\.spec\.(js|jsx)$/,
+        ],
       },
       {
         test: /\.scss$/,
