@@ -1,0 +1,28 @@
+image: node:latest
+
+cache:
+  untracked: true
+  key: "$CI_BUILD_REF_NAME"
+  paths:
+    - node_modules/
+
+stages:
+  - build
+  - test
+  - coverage
+
+build:
+  stage: build
+  script:
+    - npm install
+
+test:
+  stage: test
+  script:
+    - npm test
+
+coverage:
+  stage: coverage
+  script:
+    - npm run coverage
+  coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
