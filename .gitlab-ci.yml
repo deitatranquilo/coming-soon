@@ -14,7 +14,7 @@ stages:
 build:
   stage: build
   script:
-    - ci/install-chrome
+    - config/ci/install-chrome
     - npm install
 
 test:
