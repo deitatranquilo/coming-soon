@@ -68,7 +68,7 @@ const karmaConfig = (config) => {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['jsdom', 'Chrome'],
+    browsers: ['jsdom'],
 
 
     // Continuous Integration mode
@@ -82,7 +82,6 @@ const karmaConfig = (config) => {
       'karma-coverage-istanbul-reporter',
       'karma-sourcemap-loader',
       'karma-jsdom-launcher',
-      'karma-chrome-launcher',
     ],
 
     // Concurrency level
