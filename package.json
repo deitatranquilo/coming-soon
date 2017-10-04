@@ -5,7 +5,7 @@
     "start:prod": "NODE_ENV=production npm start",
     "test": "karma start",
     "coverage": "karma start --coverage",
-    "test:ci": "karma start --coverage --browsers jsdom",
+    "test:ci": "karma start --coverage --browsers jsdom --single-run",
     "e2e": "nightwatch"
   },
   "devDependencies": {
