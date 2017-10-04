@@ -52,7 +52,7 @@ const webpackConfig = {
     }),
     new HtmlWebpackPlugin({
       template: 'index.html',
-      title: 'Deita Tranquilo - Comming Soon',
+      title: 'Deita Tranquilo - Coming Soon',
       favicon: 'assets/images/favicon.ico',
     }),
   ],
